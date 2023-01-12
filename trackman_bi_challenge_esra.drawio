@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-01-12T18:31:43.494Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.1 Safari/605.1.15" etag="JxYju4Jf4Fj0pULmatde" version="20.8.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-12T18:38:39.499Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.1 Safari/605.1.15" etag="n1Zk7TjpOuIqscFXREsy" version="20.8.4" type="github">
   <diagram name="Input Data Model" id="0wDll3bY0JhVwaOHB7e4">
     <mxGraphModel dx="1191" dy="781" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -652,7 +652,7 @@
             <mxRectangle width="200" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CtVGWdbtMjKEKb-zsifK-146" value="Session and Stroke are join ed as one fact table which has a transaction-based data.&lt;br&gt;Each record are for every new strokes.&lt;br&gt;one or more strokes create a session&amp;nbsp;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="v9D0ILjvbAqLqava3KNG-1">
+        <mxCell id="CtVGWdbtMjKEKb-zsifK-146" value="Session and Stroke are joined as one fact table which has a transaction-based data.&lt;br&gt;Each record are for every new strokes.&lt;br&gt;one or more strokes create a session&amp;nbsp;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="v9D0ILjvbAqLqava3KNG-1">
           <mxGeometry x="450" y="30" width="210" height="160" as="geometry" />
         </mxCell>
         <mxCell id="CtVGWdbtMjKEKb-zsifK-193" value="SessionID and StrokeID were reproduced as surrogate keys by replacing GUID for better join performance" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="v9D0ILjvbAqLqava3KNG-1">
@@ -673,8 +673,8 @@
             <mxPoint x="880" y="413.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CtVGWdbtMjKEKb-zsifK-228" value="select &amp;nbsp;count(session_id)/session_seconds as session_per_second from Stroke WHERE&amp;nbsp;WifiEnable =1&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;It gives the session number for a second as session frequency&lt;br&gt;We can look at session frequency for a particular time period, such as a day or week" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="v9D0ILjvbAqLqava3KNG-1">
-          <mxGeometry x="160" y="800" width="330" height="200" as="geometry" />
+        <mxCell id="CtVGWdbtMjKEKb-zsifK-228" value="select&amp;nbsp;WifiEnable,count(session_id), avg(session_seconds) as avg_seconds from Stroke GROUP BY&amp;nbsp;WifiEnable&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;It gives the average session duration and total session number for wifi connectivity.&amp;nbsp;&lt;br&gt;We can look at session frequency for a particular period, such as a day or week by &amp;nbsp;session number/avg_duration&amp;nbsp;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#d5e8d4;strokeColor=#82b366;fillStyle=solid;direction=west;gradientDirection=north;shadow=1;size=20;pointerEvents=1;" vertex="1" parent="v9D0ILjvbAqLqava3KNG-1">
+          <mxGeometry x="160" y="800" width="350" height="270" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
